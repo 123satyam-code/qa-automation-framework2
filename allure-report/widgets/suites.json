@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"1d724e2421c677a0c20c8dd75b400c49","name":"Login functionality","statistic":{"failed":0,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":3}},{"uid":"cbb0dd51b4acb8ad639f04059cd72418","name":"Add User functionality","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}

@@ -1,0 +1,4 @@
+"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
+"0","","0","Login functionality","2","0","Login with invalid user credentials","0"
+"0","","0","Login functionality","1","0","Login with valid user credentials","0"
+"0","","0","Add User functionality","1","0","Add a new admin user successfully","0"

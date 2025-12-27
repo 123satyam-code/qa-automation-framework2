@@ -1,0 +1,1 @@
+{"uuid":"ca8b13a0-7e80-4f3c-920d-1b8cac62c1f9","name":"test.basetest.baseThree.setUp","children":["945c3625-23f8-4236-ac4f-cc8eb53e82d3"],"description":"","befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1766847013257,"stop":1766847014419}],"afters":[],"start":1766847013257,"stop":1766847014419}

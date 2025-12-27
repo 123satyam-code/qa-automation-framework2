@@ -1,0 +1,147 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.company.automation</groupId>
+    <artifactId>qa-automation-framework</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <!-- ================== PROPERTIES ================== -->
+    <properties>
+        <java.version>17</java.version>
+        <selenium.version>4.39.0</selenium.version>
+        <cucumber.version>7.31.0</cucumber.version>
+        <testng.version>7.7.0</testng.version>
+        <allure.version>2.30.0</allure.version>
+        <surefire.version>3.2.5</surefire.version>
+    </properties>
+
+    <!-- ================== DEPENDENCIES ================== -->
+    <dependencies>
+
+        <!-- Selenium -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <!-- TestNG -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Cucumber -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <!-- Allure -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber7-jvm</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <!-- ================== DEFAULT BUILD ================== -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- ================== PROFILES ================== -->
+    <profiles>
+
+        <!-- ========= CORE TESTNG LAYER ========= -->
+        <profile>
+            <id>core</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${surefire.version}</version>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>testng.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+
+                            <!-- Separate TestNG reports -->
+                            <reportsDirectory>
+                                ${project.build.directory}/reports/core-testng
+                            </reportsDirectory>
+
+                            <!-- Separate Allure results -->
+                            <systemPropertyVariables>
+                                <allure.results.directory>
+                                    ${project.build.directory}/allure-results/core
+                                </allure.results.directory>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- ========= CUCUMBER BDD LAYER ========= -->
+        <profile>
+            <id>cucumber</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${surefire.version}</version>
+                        <configuration>
+                            <!-- Include only runner classes -->
+                            <includes>
+                                <include>**/*Runner*.java</include>
+                            </includes>
+
+                            <!-- Separate Cucumber reports -->
+                            <reportsDirectory>
+                                ${project.build.directory}/reports/cucumber
+                            </reportsDirectory>
+
+                            <!-- Separate Allure results -->
+                            <systemPropertyVariables>
+                                <allure.results.directory>
+                                    ${project.build.directory}/allure-results/cucumber
+                                </allure.results.directory>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
+
+</project>

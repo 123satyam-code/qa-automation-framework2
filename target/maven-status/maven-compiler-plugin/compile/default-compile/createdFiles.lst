@@ -1,0 +1,6 @@
+managers\PageObjectManager.class
+managers\TestContextManager.class
+pageObjects\DashBoard.class
+context\ScenarioContext.class
+context\TestContext.class
+pageObjects\HomePage.class

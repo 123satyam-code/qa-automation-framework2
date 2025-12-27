@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","19881","Login with invalid user credentials","","2025-12-26","passed","2025-12-26","","Login functionality","Login with invalid user credentials",""
+"","19880","Login with valid user credentials","","2025-12-26","passed","2025-12-26","","Login functionality","Login with valid user credentials",""
+"","19831","Login with invalid user credentials","","2025-12-26","passed","2025-12-26","","Login functionality","Login with invalid user credentials",""
+"","23107","Add a new admin user successfully","","2025-12-26","passed","2025-12-26","","Add User functionality","Add a new admin user successfully",""
